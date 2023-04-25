@@ -1,14 +1,23 @@
+hooks:
+  script:
+    before:
+      - run: './mvnw -ntp verify'
+        condition: '"{{ Env.CI }}" == true'
+        verbose: true
+        filter:
+          includes: ['assemble']
+          
 project:
   name: helloworld
   description: HelloWorld in Java
   longDescription: HelloWorld in Java
   links:
-    homepage: https://github.com/jreleaser/helloworld-java-bin
+    homepage: https://github.com/aalmiray/helloworld-java-bin
   authors:
     - Andres Almiray
   license: APACHE-2.0
   inceptionYear: 2023
-  stereotype: cli
+  stereotype: CLI
   java:
     version: 11
     groupId: org.jreleaser.examples
